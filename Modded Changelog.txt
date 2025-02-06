@@ -5,6 +5,7 @@ Changes
 - Added debugMgr to splash room, title room
 - Debug Mode can be edited to wrap to a room.
 - gml_Object_obj_goalMgr_Step_0 - set Rumia's and Seija's BackMenuMgr to obj_entranceBackMgr
+- obj_player - Added checks to add in the camera graphics when the player changes to Seija in the middle of a room.
 
 Fairies
 - obj_fairy1 - No physics. Turns on fairy_wall
