@@ -1,11 +1,10 @@
 Changes
 
-- instance_destroy(obj_achievementGetMgr) # Achivement crashes the game for levels outside the achivement list, so achievement notificans have been disabled until further notice.
-- gml_Object_obj_goalMgr_Create_0 # removed global.a.X if statements and ini.open(global.savedata). So no more saving records as well.
+- instance_destroy(obj_achievementGetMgr) - Achivement crashes the game for levels outside the achivement list, so achievement notificans have been disabled until further notice.
+- gml_Object_obj_goalMgr_Create_0 - removed global.a.X if statements and ini.open(global.savedata). So no more saving records as well.
 - Added debugMgr to splash room, title room
 - Debug Mode can be edited to wrap to a room.
 - gml_Object_obj_goalMgr_Step_0 - set Rumia's and Seija's BackMenuMgr to obj_entranceBackMgr
-- obj_player - Added checks to add in the camera graphics when the player changes to Seija in the middle of a room.
 
 Fairies
 - obj_fairy1 - No physics. Turns on fairy_wall
@@ -26,7 +25,7 @@ Custom Menu
 Custom Stages
 
 - Add a custom world door to rm_entrance (Dream Hub World)
-- Add creation code that sets resources and obj_playStartMgr.
+- Add creation code to rooms that sets resources and obj_playStartMgr.
 - entrancePoint determines... the position the player will need in rm_entrance after exiting obj_doorEn since there can only be one spawn point for the player. Thankfully, "none" does nothing special.
 - To set the player's position after beating a level, obj_entranceBackMgr's step script looks at global.stagePoint and global.entrancePoint to determine which room to send the player back to.
 - To apply player's position in a world, it is in the world's room Creation Code for stagePoint.
@@ -36,6 +35,7 @@ Custom Stages
 - Rooms should be setup 2000 x 2000 to give flexibaility to level design, as move elements takes forever.
 - Base backgrounds have an object to help them scroll and loop on screen.
 - Figured out how to get doors to have names and make an object flexible. Set global.stageTitle under Step. And add another global variable to control for the fact mutiple door detect the same instance and delete the same instance in a single frame.
+- Add rooms to obj_bgm to set music.
 
 Iku's Weather Station
 - With each key collected, the rain becomes more pouring.
@@ -61,7 +61,6 @@ TODO
 BUGS
 - Seems like sometimes the startplayerinput obj doesn't work sometimes.
 - Okay, if the game is paused as the room loads, Fairy_count can just break. How is the object skipping its create function? (Just put vars in the draw script itself)
-- Don't use room repack script, that seems to break everything. Title Screen broke. Also switching room location will rename all instances of it.
 
 UTMCE
 - To delete object events, click on subtype ID or the box around the event itself and press delete. Subtype IDs can't be removed?
@@ -103,7 +102,6 @@ case 11:
             obj_mapSelectQuestion.mapName = "invisible the dark"
         break
 - obj_fairy4, it seems like there is evidence that it was supposed to be a playable character. What is odd about obj_fairy4 is that it doesn't have a obj_fairyXD associated to the object. Truly fairies are the most complex object in this game.
-- In the original build for Rumia, she supposed to get one DARK back if two blocks/bombs are used up at the same time. In the final build, this no longer occurs. Looking at the code, this does not appear to be intended, as the code is unchanged from the Rumia build.
 
 if (instance_exists(obj_darkBomb) == 1)
 
@@ -141,5 +139,3 @@ On the First use of C, energy is 2, (First if case can't happen)
 2nd use, energy is 1
 3rd use, energy is 0, (Except testing this with debug, while the first two uses work as intended, the last use doesn't set energy to 0, it simply does nothing instead.)
 So Rumia has limited uses of her explosives, but it does mean she can use all of her DARK during her first use, get 2 DARK back...
-Through, looking at all this, I think there a reason for being scrapped for being unscalable beyond 3 DARK.
-It seems like the final build broke this by setting darkPower = 9 instead of darkPower = 0 in gml_Object_obj_player_Create_0. Whoops it was my fault
