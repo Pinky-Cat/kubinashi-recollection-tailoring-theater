@@ -5,6 +5,7 @@ Changes
 - Added debugMgr to splash room, title room
 - Debug Mode can be edited to wrap to a room.
 - gml_Object_obj_goalMgr_Step_0 - set Rumia's and Seija's BackMenuMgr to obj_entranceBackMgr
+- rm_boot declares additional global variables after gamepad is set deadzone.
 
 Fairies
 - obj_fairy1 - No physics. Turns on fairy_wall
@@ -32,7 +33,7 @@ Custom Stages
 - Same case must apply obj_doorEn. Then any additional wrap points must be added to rm_entrance player.
 - obj.bgm needs an if case for stages. Also for the hub world as well.
 - obj_doorNumber is setup by Creation Code for image_index.
-- Rooms should be setup 2000 x 2000 to give flexibaility to level design, as move elements takes forever.
+- Rooms should be setup 2000 x 2000 to give flexibility to level design, as moving elements in UMT takes forever.
 - Base backgrounds have an object to help them scroll and loop on screen.
 - Figured out how to get doors to have names and make an object flexible. Set global.stageTitle under Step. And add another global variable to control for the fact mutiple door detect the same instance and delete the same instance in a single frame.
 - Add rooms to obj_bgm to set music.
@@ -133,9 +134,8 @@ if (instance_exists(obj_darkBomb) == 1)
 
             }
 
-Looking the code, it doesn't really make any sense. Perhaps that last else if statement is supposed to be 3? Wait, what is darkPower?
-Okey, the way it works is that, Rumia has limited uses on her darkPower that make it not matter if she has a bunch of Energy in the first place, since every use of C sets her energy.
-On the First use of C, energy is 2, (First if case can't happen)
-2nd use, energy is 1
-3rd use, energy is 0, (Except testing this with debug, while the first two uses work as intended, the last use doesn't set energy to 0, it simply does nothing instead.)
-So Rumia has limited uses of her explosives, but it does mean she can use all of her DARK during her first use, get 2 DARK back...
+Okey, the way it works is that, Rumia has limited uses on her darkPower that make it not matter if she has a bunch of Energy in the first place, since every use of "C" sets her energy depending on darkPower, which is seperate from energy.
+On the First use of "C", energy is 2. (The first if case can't happen normally.)
+2nd use, energy is 1.
+3rd use, energy is 0.
+So Rumia has limited uses of her explosives, but it does mean she can use all of her DARK during her first use, get 2 DARK back.
