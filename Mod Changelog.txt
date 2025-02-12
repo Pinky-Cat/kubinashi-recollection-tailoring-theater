@@ -1,6 +1,6 @@
 Changes
 
-- instance_destroy(obj_achievementGetMgr) - Achivement crashes the game for levels outside the achivement list, so achievement notificans have been disabled until further notice.
+- instance_destroy(obj_achievementGetMgr) - Achivement crashes the game for levels outside the achivement list, so achievement notificans have been disabled until further notice. Also, obj_achievementGetMgr_Draw_64 has been added custo text to pervent the game from crashing.
 - gml_Object_obj_goalMgr_Create_0 - removed global.a.X if statements and ini.open(global.savedata). So no more saving records as well.
 - Added debugMgr to splash room, title room
 - Debug Mode can be edited to wrap to a room.
