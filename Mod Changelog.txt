@@ -6,6 +6,7 @@ Changes
 - Debug Mode can be edited to wrap to a room.
 - gml_Object_obj_goalMgr_Step_0 - set Rumia's and Seija's BackMenuMgr to obj_entranceBackMgr
 - rm_boot declares additional global variables after gamepad is set deadzone.
+- pauseMenuMgr - Change text for other characters to "BACK TO ENTRANCE" from "BACK TO MENU" and scr_pauseMenu() been changed to send everyone back to entrance
 
 Fairies
 - obj_fairy1 - No physics. Turns on fairy_wall
