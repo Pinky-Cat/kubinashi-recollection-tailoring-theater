@@ -1,5 +1,6 @@
-Changes
+# Changes
 
+### Code
 - instance_destroy(obj_achievementGetMgr) - Achivement crashes the game for levels outside the achivement list, so achievement notificans have been disabled until further notice. Also, obj_achievementGetMgr_Draw_64 has been added custo text to pervent the game from crashing.
 - gml_Object_obj_goalMgr_Create_0 - removed global.a.X if statements and ini.open(global.savedata). So no more saving records as well.
 - Added debugMgr to splash room, title room
@@ -8,24 +9,25 @@ Changes
 - rm_boot declares additional global variables after gamepad is set deadzone.
 - pauseMenuMgr - Change text for other characters to "BACK TO ENTRANCE" from "BACK TO MENU" and scr_pauseMenu() been changed to send everyone back to entrance
 
-Fairies
+### Fairies
 - obj_fairy1 - No physics. Turns on fairy_wall
 - obj_fairy2 - Same as obj_fairy1, except has a smaller search range for player, and has the addition of "move_contact_solid"
 - obj_fairy3 - Physics. Charges. Kills on touch.
 - obj_fairy4 - Stays still, but jumps when the player goes over the fairy.
 
-Custom Dialogue
+# Custom Additions
+
+### Custom Dialogue
 - Newline: #
 - Call src_text for cutscene dialogue.
 - Changes to how text is render, like draw_set_halign(fa_center), applies to all text rending. Need to change the text rendering back to normal.
 - The HUD's font is actually made out of sprites.
 - Default font_message size is 32 pixels.
 
-Custom Menu
+### Custom Menu
 - obj_mapMenuMgr contains index on worlds. scr_mapMenu() is how the player warps.
 
-Custom Stages
-
+### Custom Stages
 - Add a custom world door to rm_entrance (Dream Hub World)
 - Add creation code to rooms that sets resources and obj_playStartMgr.
 - entrancePoint determines... the position the player will need in rm_entrance after exiting obj_doorEn since there can only be one spawn point for the player. Thankfully, "none" does nothing special.
@@ -39,35 +41,33 @@ Custom Stages
 - Figured out how to get doors to have names and make an object flexible. Set global.stageTitle under Step. And add another global variable to control for the fact mutiple door detect the same instance and delete the same instance in a single frame.
 - Add rooms to obj_bgm to set music.
 
-Iku's Weather Station
-- With each key collected, the rain becomes more pouring.
-- Fairies move faster.
-- Design of level should allow any key to be collected in order.
-- Perhaps ranking can be based on least used resources?
-
-
-IDEAS
+# IDEAS
 - obj_player has all the physics in the step event
 - Shaders? (Ultrmarine Rain uses obj_rain_control for rain effects)
 - Foreground elements (backgrounds can be foreground elements)
 - More inside tiles for tilesets
 
+### Iku's Weather Station
+- With each key collected, the rain becomes more pouring.
+- Fairies move faster.
+- Design of level should allow any key to be collected in order.
+- Perhaps ranking can be based on least used resources?
 
-TODO
-- Background Control
+# TODO
 - Achievements Unlocked, destroy that instance as well.
-- Get doors to show names and somehow save clear status and best time to save files.
+- Get doors to save clear status and best time to save files.
 - Add achievements? ac is the case switch used for obj_achievementCheckMgr and ini_open(global.savedata)
 - Check gamepad support
+- Change the clear condition so that it is called by a function, and not make it based on obj_gameMgr knowing there are no obj_goal left in a stage.
 
-BUGS
+# BUGS
 - Seems like sometimes the startplayerinput obj doesn't work sometimes.
 - Okay, if the game is paused as the room loads, Fairy_count can just break. How is the object skipping its create function? (Just put vars in the draw script itself)
 
-UTMCE
+# UTMCE
 - To delete object events, click on subtype ID or the box around the event itself and press delete. Subtype IDs can't be removed?
 
-DISCOVERIES
+# DISCOVERIES
 - According to obj_stageTimeLoadX_Create_0 (X refer to world number), extra stages were originally supposed to unlock when getting every puzzle piece in a world. clearFlag is what detemines if a door appears. Through, trying to get clearFlag to work doesn't seem to function correctly, so clearFlag stays at 0. Also, game crashes as it tries to grab nonexistent time for extra stages.
 if (peaceCountT01 != 0 && peaceCountT02 != 0 && peaceCountT03 != 0 && peaceCountT04 != 0 && peaceCountT05 != 0)
 {
