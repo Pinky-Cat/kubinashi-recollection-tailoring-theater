@@ -1,13 +1,14 @@
 # Changes
 
 ### Code
-- instance_destroy(obj_achievementGetMgr) - Achivement crashes the game for levels outside the achivement list, so achievement notificans have been disabled until further notice. Also, obj_achievementGetMgr_Draw_64 has been added custo text to pervent the game from crashing.
-- gml_Object_obj_goalMgr_Create_0 - removed global.a.X if statements and ini.open(global.savedata). So no more saving records as well.
-- Added debugMgr to splash room, title room
-- Debug Mode can be edited to wrap to a room.
-- gml_Object_obj_goalMgr_Step_0 - set Rumia's and Seija's BackMenuMgr to obj_entranceBackMgr
+- instance_destroy(obj_achievementGetMgr) - Achivement crashes the game for levels outside the achivement list, so achievement notificans have been disabled until further notice. Also, obj_achievementGetMgr_Draw_64 has been added custom text to pervent the game from crashing.
+- obj_goalMgr_Create - removed global.a.X if statements and ini.open(global.savedata). So no more saving records as well.
+- Added debugMgr to splash room and title room. Made it so it can be edited to wrap to a room.
 - rm_boot declares additional global variables after gamepad is set deadzone.
-- pauseMenuMgr - Change text for other characters to "BACK TO ENTRANCE" from "BACK TO MENU" and scr_pauseMenu() been changed to send everyone back to entrance
+- obj_pauseMenuMgr - Change text for other characters to "BACK TO ENTRANCE" from "BACK TO MENU" and scr_pauseMenu() been changed to send everyone back to entrance
+- obj_gameMgr_Step - Change the goal management, so that every character can go back to entrance after completing the stage.
+- obj_goalMgr_Step - Set Rumia's and Seija's BackMenuMgr to obj_entranceBackMgr
+- obj_player - Added a 10 frame jumpBuffer window for QoL purposes.
 
 ### Fairies
 - obj_fairy1 - No physics. Turns on fairy_wall
